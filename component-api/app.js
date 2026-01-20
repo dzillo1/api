@@ -1,4 +1,4 @@
-const apiUrl = "http://localhost:3000/components"; // Change to deployed URL later
+const apiUrl = "https://component-api-rjqa.onrender.com/components"; // Change to deployed URL later
 
 const list = document.getElementById("component-list");
 const form = document.getElementById("add-component-form");
