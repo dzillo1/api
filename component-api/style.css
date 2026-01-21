@@ -7,3 +7,9 @@
     gap: 10px;
     margin-top: 20px;
 }
+@media (min-width: 600px) {
+    #add-component-form{
+        flex-direction: row;
+        align-items: center;
+    }
+}
