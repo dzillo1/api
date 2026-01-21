@@ -8,7 +8,8 @@ app.use(express.json());
 // In-memory data store
 let components = [
   { id: 1, name: "Button", usageCount: 120 },
-  { id: 2, name: "Modal", usageCount: 45 }
+  { id: 2, name: "Modal", usageCount: 45 },
+  { id: 3, name: "Dropdown", usageCount: 78 }
 ];
 
 // --------------------
@@ -31,7 +32,7 @@ app.post("/components", (req, res) => {
 
   components.push(newComponent);
 
-  // 201 = "Created" status code
+// 201 = "Created" status code
   res.status(201).json(newComponent);
 });
 
