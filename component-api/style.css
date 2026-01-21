@@ -1,0 +1,9 @@
+#component-list li{
+    cursor: pointer;
+}
+#add-component-form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
