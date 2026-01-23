@@ -1,8 +1,8 @@
-Component API Demo
+Component API
 ------------------
 A small full-stack project demonstrating a RESTful API with a live frontend on GitHub Pages. Built to showcase CRUD operations and integration between a static site and a backend API.
 
-Live Demo
+Demo
 ------------------
 Frontend (GitHub Pages): https://dzillo1.github.io/api/component-api/index.html
 

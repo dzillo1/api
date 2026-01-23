@@ -1,11 +1,11 @@
-const apiUrl = "https://component-api-rjqa.onrender.com/components"; // Change to deployed URL later
+const apiUrl = "https://component-api-rjqa.onrender.com/components";
 
 const list = document.getElementById("component-list");
 const form = document.getElementById("add-component-form");
 const nameInput = document.getElementById("name");
 const usageInput = document.getElementById("usageCount");
 
-// Fetch and display components
+// Fetch components
 async function fetchComponents() {
   const res = await fetch(apiUrl);
   const components = await res.json();
@@ -19,7 +19,7 @@ async function fetchComponents() {
   });
 }
 
-// Add new component
+// Add component
 form.addEventListener("submit", async e => {
   e.preventDefault();
   await fetch(apiUrl, {

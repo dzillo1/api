@@ -5,24 +5,20 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// In-memory data store
+// data store
 let components = [
   { id: 1, name: "Button", usageCount: 120 },
   { id: 2, name: "Modal", usageCount: 45 },
   { id: 3, name: "Dropdown", usageCount: 78 }
 ];
 
-// --------------------
-// GET all components
-// --------------------
+
+// GET
 app.get("/components", (req, res) => {
   res.json(components);
 });
 
-// --------------------
-// POST create new component
-// Place this directly BELOW the GET /components route
-// --------------------
+// POST
 app.post("/components", (req, res) => {
   const newComponent = {
     id: Date.now(),
@@ -32,38 +28,32 @@ app.post("/components", (req, res) => {
 
   components.push(newComponent);
 
-// 201 = "Created" status code
+// 201 - created
   res.status(201).json(newComponent);
 });
 
-// --------------------
-// PUT update a component
-// --------------------
+// PUT
 app.put("/components/:id", (req, res) => {
-  const id = Number(req.params.id); // convert URL param to number
+  const id = Number(req.params.id);
   const component = components.find(c => c.id === id);
 
   if (!component) {
     return res.status(404).json({ error: "Component not found" });
   }
 
-  // Update fields if provided
+  // UPDATE
   if (req.body.name !== undefined) component.name = req.body.name;
   if (req.body.usageCount !== undefined) component.usageCount = req.body.usageCount;
 
   res.json(component);
 });
 
-// --------------------
-// Start the server
-// --------------------
+// Start
 app.listen(3000, () => {
   console.log("API running on port 3000");
 });
 
-// --------------------
-// DELETE a component
-// --------------------
+// DELETE
 app.delete("/components/:id", (req, res) => {
   const id = Number(req.params.id);
   const index = components.findIndex(c => c.id === id);
@@ -72,7 +62,7 @@ app.delete("/components/:id", (req, res) => {
     return res.status(404).json({ error: "Component not found" });
   }
 
-  const deleted = components.splice(index, 1)[0]; // remove from array
+  const deleted = components.splice(index, 1)[0];
 
   res.json(deleted);
 });
